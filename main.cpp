@@ -1,4 +1,4 @@
-#include <cstdlib>
+﻿#include <cstdlib>
 #include <cstdio>
 #include <iostream>
 #include <cstdio>
@@ -152,7 +152,53 @@ int main(int argc, char** argv)
 		}
 
 		case 1:								// 1. 树形结构
-		{}
+		{
+				// 界面层级符置为2，进入二级界面：
+				interfaceLevel = 2;
+				while (2 == interfaceLevel)
+				{
+					cout << "\n\n\n\n" << endl;
+					cout << "**************************TREE STRUCTURE MENU**********************" << endl;
+					cout << "Please input a number to choose a function setting plan:" << endl;
+					cout << "-1. Back to the previous interface" << endl;
+					cout << "0. 树型结构——二叉树基本" << endl;
+					cout << "1. 树型结构——线索二叉树" << endl;
+			
+					inputTag = scanf("%d", &inputNum);
+			
+					// 若输入值不是整数，重新输入。
+					if (0 == inputTag)
+					{
+						cout << "Invalid input. Please input again:" << endl;
+						setbuf(stdin, NULL);				// stdin输入流由默认缓冲区转为无缓冲区，这样就清空了缓冲区中的内容。
+																				// 不要用fflush来清空缓存区，该函数很多编译器支持得不好。
+						continue;
+					}
+			
+					// 对二级界面输入值的响应：
+					switch (inputNum)
+					{
+					case -1:
+						interfaceLevel = 1;
+						break;
+			
+					case 0:
+						reset_pfun();
+						break;
+			
+					case 1:
+						reset_pfun();
+						break;
+			
+					default:
+						cout << "Invalid input. Please input again:" << endl;
+						break;
+					}
+			
+				}
+				break;
+		}
+
 
 		case 2:								// 2. 图型结构
 		{}
